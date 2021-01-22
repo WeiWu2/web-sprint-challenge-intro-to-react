@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import styled from "styled-components";
-
+import Details from './Details';
 
 export default function Character({character}){
     const [details, setDetails] = useState(false)
@@ -10,13 +10,9 @@ export default function Character({character}){
     <StyledCharacter>
       <h2> {character.name} </h2>
       <button onClick={() => {setDetails(!details)}}>Details</button>
-      { details && <StyledDetail>Hello There</StyledDetail>}
+      { details && <Details character={character}/>}
         </StyledCharacter>);
 }
-const StyledDetail = styled.div`
-display:flex;
-flex-direction:row;
-`
 const StyledCharacter = styled.div`
     color: ${(pr) => pr.theme.primaryColor};
     background-color: lightgrey;
